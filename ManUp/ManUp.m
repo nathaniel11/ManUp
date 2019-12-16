@@ -329,6 +329,7 @@ typedef NS_ENUM(NSUInteger, ManUpAlertType) {
                                                                  handler:^(UIAlertAction * _Nonnull action) {
                                                                      [self openUpdateURL];
                                                                      self.alertController = nil;
+								     self.currentlyShownAlertType = ManUpAlertTypeNone;
                                                                  }];
             
             [self showAlertOfType:ManUpAlertTypeMandatoryUpdate
