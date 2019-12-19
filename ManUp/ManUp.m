@@ -261,14 +261,8 @@ typedef NS_ENUM(NSUInteger, ManUpAlertType) {
     NSString *installedVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSComparisonResult minVersionComparisonResult = [ManUp compareVersion:installedVersion toVersion:minVersion];
     NSComparisonResult currentVersionComparisonResult = [ManUp compareVersion:installedVersion toVersion:currentVersion];
-    NSComparisonResult enabledForVersionsComparisonResult = [ManUp compareVersion:enabledForVersions toVersion:currentVersion];
     NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
     BOOL enabled = [self settingForKey:kManUpConfigAppIsEnabled] ? [[self settingForKey:kManUpConfigAppIsEnabled] boolValue] : YES;
-    
-    if (minVersion && minVersionComparisonResult == NSOrderedAscending) {
-        enabled = NO;
-        [self log:@"ManUp: Error, expecting string for current app store version"];
-    }
 
     if (![currentVersion isKindOfClass:[NSString class]]) {
         [self log:@"ManUp: Error, expecting string for current app store version"];
