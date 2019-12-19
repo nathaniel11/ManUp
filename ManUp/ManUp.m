@@ -280,16 +280,6 @@ typedef NS_ENUM(NSUInteger, ManUpAlertType) {
         return;
     }
     
-    if (![enabledForVersions isKindOfClass:[NSString class]]) {
-        [self log:@"ManUp: Error, expecting string for enabled for app store versions >"];
-        return;
-    }
-    
-    if (enabledForVersions && enabledForVersionsComparisonResult == NSOrderedDescending) {
-        enabled = NO;
-        [self log:@"ManUp: Disabling as current version is not > enabled versions"];
-    }
-    
     [self log:@"Current version  : %@", currentVersion];
     [self log:@"Min version      : %@", minVersion];
     [self log:@"Installed version: %@", installedVersion];
