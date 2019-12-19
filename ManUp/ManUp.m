@@ -257,7 +257,6 @@ typedef NS_ENUM(NSUInteger, ManUpAlertType) {
     NSString *updateURL = [self settingForKey:kManUpConfigAppUpdateURL];
     NSString *currentVersion = [self settingForKey:kManUpConfigAppVersionCurrent];
     NSString *minVersion = [self settingForKey:kManUpConfigAppVersionMin];
-    NSString *enabledForVersions = [self settingForKey:kManUpConfigAppIsEnabledForVersions];
     NSString *installedVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSComparisonResult minVersionComparisonResult = [ManUp compareVersion:installedVersion toVersion:minVersion];
     NSComparisonResult currentVersionComparisonResult = [ManUp compareVersion:installedVersion toVersion:currentVersion];
